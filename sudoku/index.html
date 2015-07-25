@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数独|sudoku</title>
+  <link rel="stylesheet" type="text/css" href="./static/css/main.css" />
+</head>
+<body>
+  <div id="container">
+  </div>
+  <script src='http://cdn.staticfile.org/react/0.12.0/JSXTransformer.js'></script>
+  <script src='http://cdn.staticfile.org/react/0.12.0/react.js'></script>
+  <script type='text/jsx'>
+
+    var SudokuBox = React.createClass({
+      render: function() {
+        var grids = [];
+        for (var i=0; i<9; ++i) {
+          grids.push(<div className='grid' />);
+        }
+        return (
+          <div className='box'>
+            {grids}
+          </div>
+        );
+      }
+    });
+
+    var SudokuTable = React.createClass({
+      render: function() {
+        var boxes = [];
+        for (var i=0; i<9; ++i) {
+          boxes.push(<SudokuBox />);
+        }
+        return (
+          <div id='table'>
+            {boxes}
+          </div>
+        );
+      }
+    });
+
+    React.render(
+      <SudokuTable />,
+      document.getElementById('container')
+    );
+  </script>
+</body>
+</html>
